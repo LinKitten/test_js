@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js的数据类型</title>
+    <script>
+  
+     /* js的变量数据类型是只有在程序运行的过程中，根据等号右边的值来确定的 */
+    
+     var age = 99;//数字型
+     var myName = 'linlin';//字符串型
+    /* js是动态语言 变量的数据类型是可以变化的 */
+     var y =10;
+     y='lin';
+
+     //数字型max
+     console.log(Number.MAX_VALUE);
+     //min
+     console.log(Number.MIN_VALUE);
+     //无穷大
+     console.log(Number.MAX_VALUE*2); //infinity
+    //无穷小
+    console.log(-Number.MAX_VALUE*2); //-infinity
+    
+    //isNaN()  用来判断非数字  并返回一个值
+                //如果是数字：false
+                //如果不是数字： true
+    console.log(isNaN(10));//false
+    console.log(isNaN("lilin"));//true
+
+    //字符串类型 ： 可用单引号或双引号 可以嵌套
+    alert('可用单引号或双引号 可以嵌套\n可以嵌套\n可以嵌套"hahahhhha~"');
+
+    //字符串长度
+    //1、检测获取字符串的长度 length
+    var str = "123456789";
+    alert(str.length)//9
+    
+    //2、字符串的拼接 +  如果有一个是字符串最终会是字符串
+    //数值相加，字符相连
+    console.log(str+y+'test');
+    console.log('11'+11);//1111
+    console.log(11+11);//22
+    console.log("11"+"11");//1111
+    </script>
+  
+</head>
+<body>
+    
+</body>
+</html>
