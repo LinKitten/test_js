@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据类型的转化</title>
+    <script>
+        /*
+        转化为字符型 
+         */
+        //1、数字型——>字符型
+        var num = 10;
+        var str = num.toString();
+        console.log(str +' 类型:' +typeof str);
+        //string(变量);
+        console.log(String(num));
+        //隐式转化 利用+拼接字符的转化效果
+        console.log(num+' ');
+
+        /* 
+        转换为数值型
+        */
+       //1、parseInt（变量） 转化为整形
+       console.log(parseInt("6.66"));//6
+       console.log(parseInt("6.99"));//6
+       console.log(parseInt("6demo6"));//6
+       console.log(parseInt("demo1"));//NaN
+       
+       //2、parseFloat（变量) 转化为浮点数
+       console.log(parseFloat("6.66"));//6.66
+       console.log(parseFloat("6"));//6
+       console.log(parseFloat("6.88demo6"));//688
+
+       //3、Number强制类型转化
+        console.log(Number("12"));//12
+       //4、利用算术运算  隐式转化
+       console.log("12"-1);//11
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
