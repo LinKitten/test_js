@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组</title>
+    <script>
+         /* 创建数组的方式： */
+            // 1、利用new创建数组
+            var arr = new Array(); //创建了一个空的数组
+            // 2、利用数组字面量创建数组
+            var arr1 = [];// 创建了一个空的数组
+            //数组内可以存放任意类型变量
+            var arr2 = [1,2,"lin",true];
+            console.log(arr2);
+
+            /* 数组的索引
+                下标值：用来访问数组元素的序号（下标从0开始）
+                获取数组元素 格式 数组名[索引号]
+            */
+           console.log(arr2[1]);//2
+           console.log(arr2[4]);//undefined
+
+           /* 遍历数组  arr3.length =获取数组长度*/
+           var arr3 = ["11","领带","鞋子","衣服","帽子","ipad","raibow"];
+           for(var i =0; i<arr3.length;i++){
+            console.log(arr3[i]);//下标从1开始
+           }
+
+           var arr4 = [1,3,5,7,9,22,56,78,34,55];
+           var sum=0;
+           for(var i=0;i<arr4.length;i++){
+                sum+=arr4[i];
+           }
+           var avg = sum/arr4.length;
+           console.log("1,3,5,7,9,22,56,78,34,55 的和为："+sum,"平均值："+avg); //1,3,5,7,9,22,56,78,34,55 的和为：270 平均值：27
+
+
+           /* 求数组中的最大值 */
+           
+           var arr5 = [1,3,5,7,9,22,56,78,34,55];
+           var max = arr5[0];
+           for(var i =1; i < arr5.length; i++ ){
+            if(max < arr5[i]){
+                max = arr5[i];
+            }
+           }
+           console.log("1,3,5,7,9,22,56,78,34,55的最大数值："+max); //1,3,5,7,9,22,56,78,34,55的最大数值：78
+
+           /* 数组转化为字符串  中间用-相连*/
+           var arr6 = ["11","领带","鞋子","衣服","帽子","ipad","raibow"];
+           var sep ='-'
+           var str ='';
+           for(var i =0; i<arr6.length;i++){
+                str += arr6[i]+sep;
+           }
+           console.log(str);
+
+           /* 给数组添加元素 
+           ---通过修改length的长度新增元素 
+                修改length的长度对数组进行扩容
+           ---通过修改数组索引新增的数组元素
+                如果原来有元素，等于替换元素
+
+                ！！！！！不能直接给数组名赋值，否则整个数组的元素全部都会不见
+           */
+           var arr7 = ["11","领带","鞋子","衣服","帽子","ipad","raibow"];
+           console.log("原长度"+arr7.length);
+           arr7.length +=2;
+           console.log("原长度"+arr7.length);
+           var sep ='-'
+           var str ='';
+            arr7[8]="领带";
+           for(var i =0; i<arr7.length;i++){
+                str += arr7[i]+sep;
+           }
+        
+           console.log(str);//11-领带-鞋子-衣服-帽子-ipad-raibow-undefined-领带-
+
+           /* 
+           创建数组，进行赋值1到100
+           */
+          var arr9=[];
+          for(var i =0; i<100 ;i++){
+            arr9[i]=i+1;
+          }
+          console.log(arr9);
+
+          /* 把大于10的取出放到新数组 1,3,5,7,9,22,56,78,34,55]; */
+          var newArr = [];
+          var arr10 = [1,3,5,7,9,22,56,78,34,55];
+          var j=0;
+          for(var i =0; i<arr10.length;i++){
+                if(arr10[i]>10){
+                    newArr[j] = arr10[i];
+                    j++;
+                }
+           }
+           console.log(arr10,newArr);
+           /*(10) [1, 3, 5, 7, 9, 22, 56, 78, 34, 55] 
+            (5) [22, 56, 78, 34, 55] */
+
+            /* 
+            把大于10的取出放到新数组的解放二
+            */
+            var newArr1 = [];
+          var arr11 = [1,3,5,7,9,22,56,78,34,55];
+          for(var i =0; i<arr11.length;i++){
+                if(arr11[i]>10){
+                    newArr1[newArr1.length] = arr11[i];
+                }
+           }
+           console.log(arr11,newArr1);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

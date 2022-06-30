@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数</title>
+    <script>
+        //函数：封装相同执行操作的代码块
+
+        // 累加
+        function getSum(num1,num2){
+            var sum =0;
+            for(var i=num1;i<=num2;i++){
+                sum+=i;
+            }
+            console.log(sum);
+        }
+
+        //1-100累加
+        getSum(1,100);//5050
+
+        //45-1000累加
+        getSum(45,1000);//499510
+
+
+        //函数使用：第一步：声明函数 第二步调用函数
+        /* 1、声明函数
+            function 函数名（）{
+                //函数体
+            }        
+        */
+
+        //1、利用函数实现任意两个数的和
+        function getSum1(num1,num2){
+            var sum =num1+num2;
+            console.log("两个数的和"+sum);
+        }
+        
+        //2、利用函数实现任意两个数之间的和
+        function getSum2(num1,num2){
+            var sum =0;
+            for(var i=num1;i<=num2;i++){
+                sum+=i;
+            }
+            console.log("两个数之间的和:"+sum);
+        }
+        var a =parseInt(prompt("输入第一个数："));
+        var b =parseInt(prompt("输入第E二个数："));
+        getSum1(a,b);
+        getSum2(a,b);
+        /* 两个数的和46
+            两个数之间的和:529
+         */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
