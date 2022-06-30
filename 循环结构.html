@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>循环</title>
+    <script>
+        // 循环的目的：可以重复执行某些语句
+
+        // 1、for重复执行某些代码，通常跟计数有关
+        // 2、for语法结构
+        // for(初始化变量;条件表达式;操作表达式){
+        //     // 循环体
+        // }
+
+        // 3、双重for循环
+        for(外层的初始化变量;外层的条件表达式;外层的操作表达式){
+            for(里层的初始化变量;里层的条件表达式;里层的操作表达式){
+                语句
+            }
+        }
+
+        // 重复执行相同代码
+        // var tmp = prompt("请输入次数");
+        // for(var i=0;i<tmp;i++){ 
+        //     console.log("haha=="+i);
+        // }
+
+        // 1到100的整数累加；
+
+        // var sum=0;
+        // for(var i=1;i<=100;i++){
+        //     sum+=i;
+        // }
+        // console.log("1到100的整数累加和为："+sum);//1到100的整数累加和为：5050
+    
+        // 1到100的整数的和的拍几张
+        var sum=0,aver=0;
+        for(var i=1;i<=100;i++){
+            sum+=i;
+        }
+        aver=sum/100
+        console.log("1到100的整数累加和为："+sum);//1到100的整数累加和为：5050
+        console.log("平均数："+aver);
+
+        //求1-100所有的偶数和奇数之和
+        var even=0,odd=0;
+        for(var i=1;i<=100;i++){
+            if(i%2==0){
+                even+=i;
+            }else{
+                odd+=i;
+            }
+        }
+        console.log("1-100之间的偶数和："+even+"  奇数和为："+odd);
+        
+        // 3求1-100之间能被三整除的和为
+        var result =0;
+        for(var i=1;i<=100;i++){
+            if(i%3==0){
+                result+=i;
+            }
+        }
+        console.log("1-100之间能被三整除的和为"+result);
+
+
+        /*  
+        1到100的整数累加和为：5050
+        平均数：50.5
+        1-100之间的偶数和：2550  奇数和为：2500
+       1-100之间能被三整除的和为1683
+        */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

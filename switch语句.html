@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多分支语句switch</title>
+    <script>
+        //1、switch 多分支语句
+        //2、语法结构
+        // switch(表达式){
+        //     case value1:
+        //         执行语句;
+        //         break;
+        //     case value2:
+        //         执行语句;
+        //         break;   
+        //     ...
+        //     default:
+        //        执行最后的语句; 
+        // }
+        /* 
+            查询水果
+            根据输入的水果名称，输出对应水果的价格
+        */
+       var fruit = prompt('请输入水果');
+       switch(fruit){
+            case '苹果':
+                alert(fruit+"的价格是：6.8/斤");
+                break;
+            case '桃子':
+                alert(fruit+"的价格是：14.8/斤");
+                break;
+            case '葡萄':
+                alert(fruit+"的价格是：20/斤");
+                break;
+            default:
+            alert(fruit+"不是水果");
+       }
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

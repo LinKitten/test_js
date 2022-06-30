@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>求学生成绩案例</title>
+    <script>
+        //输入班级总人数：
+        var studentSum = prompt("输入班级总人数");
+        //依次输入学生成绩
+        var StuScoresum=0,agv=0;
+        for(var i=0;i<studentSum;i++){
+            var score1 =parseInt(prompt("请输入第"+i+"个学生成绩")) ;
+            //计算总成绩
+            StuScoresum+=score1;
+        }
+        agv= StuScoresum/studentSum;
+        console.log("总成绩："+StuScoresum+"平均成绩："+agv);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
