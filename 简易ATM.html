@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简易ATM</title>
+    <script>
+        var balance =0;//用来记录余额
+        //获取选择的操作
+        do{
+            var num = parseInt(prompt("请输入你想要的操作：\n 1:存钱\n2:取钱\n3:显示余额\n4:退出"));
+            switch(num){
+                case 1:
+                    var tmp =parseInt(prompt("请输出要存入的金额："));
+                    if(tmp>0){
+                        balance += tmp;
+                        alert("成功存入"+tmp+"元");
+                    }
+                    break;
+                case 2:
+                    var down = parseInt(prompt("请输出要取出的的金额："));
+                    if(down<=balance){
+                        balance -= down;
+                        alert("成功取出"+down+"元");
+                    }else{
+                        alert("余额不足");
+                    }
+                    break;
+                case 3:
+                    alert("现在的余额为："+balance);
+                    break;
+                case 4:
+                    alert("成功退出");
+                    break
+                default:
+                    alert("无该选项，请重新选择");
+            }
+        }while(num!=4)
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
