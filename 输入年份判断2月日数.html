@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>输入年份判断2月日数</title>
+    <script>
+        
+        function backday(){
+            var year = prompt("请输入年份");
+            if(isrunyear(year)){
+                alert("是闰年，2月天数为29");
+            }else{
+                alert("是平年，2月天数为28")
+            }
+        }
+
+        //判断闰年的方法
+        function isrunyear(year){
+            var flag=false;
+            if(year%4==0 && year%100!=0 || year%400==0){
+                flag=true;
+            }
+            return flag;
+        }
+
+
+
+        backday();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

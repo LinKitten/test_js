@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>翻转任意数组</title>
+    <script>
+    //翻转任意数组
+        function reverse(){
+            var newArr =[];
+            for(var i=arguments.length-1;i>=0;i--){
+                newArr[newArr.length]=arguments[i];
+            }
+            return newArr;
+        }
+        console.log(reverse(1,4,6,9));
+
+        //冒泡排序
+        function sort(arr3){
+            // for(var i=0;i<=arr.length-1; i++){
+            //     for(var j =0; j<=arr.length-i-1; j++){
+            //         if(arr[i]>arr[j+1]){
+            //             var tmp =arr[i];
+            //             arr[i]=arr[j+1];
+            //             arr[j+1]=tmp;
+            //         }
+            //     }
+            // }
+            for(var i=0; i<=arr3.length-1; i++){
+            for(var j=0; j<=arr3.length-i-1; j++){
+             if(arr3[j]>arr3[j+1]){
+                var tmp = arr3[j];
+                arr3[j]= arr3[j+1];
+                arr3[j+1] =tmp;
+             }
+            }
+        }
+            return arr3;
+        }
+        var arr3=[89,34,6,31,56,77,23];
+        console.log(sort(arr3));
+
+        //函数之间相互调用
+
+
+        
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

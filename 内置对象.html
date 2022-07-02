@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内置对象</title>
+    <script>
+        // /* Math数学对象 不是一个构造函数 所以不需要new来调用 而是直接使用里面的属性和方法*/
+        console.log(Math.PI);//输出圆周率  3.141592653589793
+        console.log(Math.max(99,45,6,7,88,9)); //输出最大值 99
+        console.log(Math.max(-12,-1)); //输出最大值 -1
+        console.log(Math.max(12,"字符")); //输出最大值 NaN
+        console.log(Math.max()); //输出最大值  -Infinity
+
+        /* 利用对象封装自己的数学对象 里面有PI最大值和最小值 */
+        var myMath={
+            PI: 3.141592653589793,
+            max:function(){
+                var max = arguments[0];
+                for(var i=1;i<arguments.length;i++){
+                    if(max<arguments[i]){
+                        max=arguments[i];
+                    }
+                }
+                return max;
+            },
+            min:function(){
+                var min = arguments[0];
+                for(var i=1;i<arguments.length;i++){
+                    if(min>arguments[i]){
+                        min=arguments[i];
+                    }
+                }
+                return min;
+            }
+        }
+        console.log(myMath.PI);
+        console.log(myMath.max(99,56,7));       
+        console.log(myMath.min(99,56,7));
+
+        /*3.141592653589793
+            99
+            7 
+         */
+
+        //绝对值方法Math.abs()
+         console.log(Math.abs(1));
+         console.log(Math.abs(-1));
+         console.log(Math.abs("-1")); //隐式转化 转换成数字型
+         console.log(Math.abs("lin"));
+
+         /* 三个取整的方法*/
+        //  向下取整 Math.floor()
+        console.log(Math.floor(1.9));//1
+        console.log(Math.floor(1.1));//1
+        //  向上取整
+        console.log(Math.ceil(1.9));//2
+        console.log(Math.ceil(1.1));//2
+        //  四舍五入取整
+        console.log(Math.round(1.9));//2
+        console.log(Math.round(1.5));//2
+        console.log(Math.round(1.1));//1
+        console.log(Math.round(-1.1));//-1
+        console.log(Math.round(-1.5));//-1
+
+        /* 随机数方法random（）
+        return 一个随机的浮点数 0=<x<1
+        */
+       console.log(Math.random());
+       //得到两个数之间的随机整数 并且包含两个整数
+       function getRandom(min,max){
+            return Math.floor(Math.random()*(max-min+1))+min;
+       }
+       console.log(getRandom(1,100));
+
+       //随机点名
+       var stuName=["lilin","hehe","手机","随机"];
+       console.log(stuName[getRandom(0,stuName.length-1)]);
+
+       /* 日期对象Date   是一个构造函数 必须使用new调用创建我们的日期对象 */
+    //    使用date对象
+       var datetime = new Date(); //如果没有参数，返回当前系统的当前时间
+       console.log(datetime);
+    // 参数的常用写法：数学型 2022，10，10 或是在 字符串型 '2022-10-10 8:8:8'
+    console.log(new Date('2022-10-10 8:8:8')); //Mon Oct 10 2022 08:08:08 GMT+0800 (中国标准时间)   
+    console.log(new Date('2022/10/10')); //Mon Oct 10 2022 00:00:00 GMT+0800 (中国标准时间)
+
+    //格式化日期 年月日
+    // var date = new Date();
+    // console.log(date.getFullYear());//返回当前的年份
+    // console.log(date.getMonth()+1);//返回当前的月份
+    // console.log(date.getDate());//返回当天几号
+    // console.log(date.getDay());//返回当天星期几 0=周天
+
+
+    /* 写一个 xx0年x月x日 星期x*/
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth()+1;
+    var dates = date.getDate();
+    var day = date.getDay();
+    var dayArr= ["星期天","星期一","星期二","星期三","星期四","星期五","星期六"]
+    console.log("今天是："+year+"年"+month+"月"+dates+"日 "+dayArr[day]);
+
+    //格式化时分秒
+    function getTime(){
+        var date = new Date();
+        var hours = date.getHours();//时
+        var minutes = date.getMinutes();//分
+        var sec = date.getSeconds();//秒
+        hours= hours < 10 ? '0'+hours : hours;
+        minutes = minutes<10 ? '0'+minutes : minutes;
+        sec = sec < 10? '0'+sec : sec;
+        return hours +":"+minutes+":"+sec
+    }
+    console.log(getTime());
+
+    // 获得Date总的毫秒数  也叫时间戳
+    var date1 = new Date();
+    console.log(date1.valueOf()); // 当前距离1970.1.1年的毫秒数
+    console.log(date1.getTime()); 
+    //第二种写法 （最常用)
+    var date2 =+ new Date();
+    console.log(date2);
+
+    //方法3：h5新增
+    console.log(Date.now());
+
+    /* 数组对象Array  */
+    // 1、用数组字面量创建数组
+    var arr=[1,2,3];
+    console.log(arr[0]);
+	// 2、利用new Array()
+    var arr1 = new Array(3,4,45);
+    console.log(arr1);
+
+    //檢測是否為數組
+    //1、 instanceof 运算符 用来检测是否为数组
+    var arr3 =[];
+    var obj ={};
+    console.log(arr instanceof Array);//true
+    console.log(obj instanceof Array);//false
+
+    // 2、Array.isArray(参数) （ie9以上版本才支持）
+    console.log(Array.isArray(arr3));//true
+    console.log(Array.isArray(obj));//false
+
+
+    /* 添加和删除数组元素的方法 */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

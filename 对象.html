@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象</title>
+    <script>
+        //利用对象字面量创建对象
+        var obj ={}; //创建一个空对象
+        var obj1 ={
+            username:'linlin',
+            age:18,
+            sex:'男',
+            syHi:function(){
+                console.log("hi");
+            }
+        };
+        /* 
+            (1)对象里的属性和方法采用 键值对 的形式   属性名：值
+            （2）多属性或方法中间用逗号隔开
+            （3）方法后面跟的是匿名函数
+        */
+
+        // 使用对象
+        /* 
+        （1）调用对象的属性， 采用 对象名。属性名
+        (2)调用对象的属性第二种方法 ；采用 对象['属性名']
+        (3) 调用对象的方法 对象名.方法名（）
+        */
+        // console.log(obj1.username,obj1['age']); //linlin 18
+        // obj1.syHi(); //hi
+
+        // //利用new Object创建对象
+        // var obj2 = new Object();
+        // //追加属性
+        // obj2.lever=1;
+        // obj2.name="lin";
+        // obj2.pewor=100;
+        // obj2.sayNo=function(){
+        //     console.log("no!");
+        // }
+
+
+        //利用构造函数创建对象
+        //语法格式
+        // function 构造函数名(){
+        //     this.属性=值;
+        //     this.方法 =function(){}
+        // }
+        // //调用方法
+        // new 构造函数名();
+
+        /* 规范：构造函数名首字母要大写
+            构造函数不需要return 就可以返回结果
+        
+        */
+        
+        function Star(uname,uage,upower){
+            this.name = uname;
+            this.age = uage;
+            this.power = upower;
+            this.fun = function(demo){
+                console.log(demo);
+            }
+        }
+         var my = new Star('linlin',89,100); //调用函数放回的是一个对象
+         var yours = new Star("nini",19,88);
+         console.log(my);
+         console.log(my.age);
+         my.fun("hahhahahahaha");
+
+        //利用构造函数创建对象的过程称为对象的实例化
+
+        /* 
+        new 关键字执行过程
+            1、new构造函数可以在内存中创建一个空的对象
+            2、this 就会在指向刚创建的空对象
+            3、执行构造函数里面的代码 给这个空对象添加属性和方法
+            4、返回这个对象
+
+        */
+
+        //遍历对象
+        var obj4 ={
+            username:'linlin',
+            age:18,
+            sex:'男',
+            syHi:function(){
+                console.log("hi");
+            }
+        };
+        /* for... in语句用于遍历对象
+            语法格式
+            for(变量 in 对象){
+
+            }
+        */
+                for(var k in obj4){ //kS是变量
+                    console.log(k); //输出的是属性名
+                    console.log(obj4[k]); //输出的是对应属性名的值
+
+                }
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
