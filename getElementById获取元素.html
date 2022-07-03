@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementById获取元素</title>
+
+</head>
+<body>
+    <div id="ele">getElementById获取元素</div>
+    <script>
+        //1、因为文档从上往下加载，所以先得有标签
+        /* 
+                get 获得 element 元素 by 通过 id 
+                getElementById（）的参数id是大小写敏感的字符串
+                 return 一个元素对象
+            2、console.dir打印返回的元素对象，更好的查看里面的属性和方法
+        */
+       
+        var divGetId = document.getElementById("ele");
+        console.log(divGetId); // <div id="ele">getElementById获取元素</div>
+        console.log(typeof divGetId); //object
+        console.dir(divGetId) //div#ele
+
+    </script>
+</body>
+</html>

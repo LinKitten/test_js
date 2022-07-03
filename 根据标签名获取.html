@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>根据标签名获取</title>
+</head>
+<body>
+    <ul>
+        <li>根据标签名获取getElementsByTagName 1</li>
+        <li>根据标签名获取getElementsByTagName 2</li>
+        <li>根据标签名获取getElementsByTagName 3</li>
+        <li>根据标签名获取getElementsByTagName 4</li>
+        <li>根据标签名获取getElementsByTagName 5</li>
+        <li>根据标签名获取getElementsByTagName 6</li>
+    </ul>
+    <ol id="olId">
+        <li>ol标签里的内容1</li>
+        <li>ol标签里的内容2</li>
+        <li>ol标签里的内容3</li>
+        <li>ol标签里的内容4</li>
+    </ol>
+    <script>
+        /* 返回的是  获取过来元素对象的集合，以伪数组的形式存储 */
+        var ele = document.getElementsByTagName("li");
+        console.log(ele);
+        console.log(typeof ele);
+        console.dir(ele)
+
+        //打印第三个元素
+        console.log(ele[2]);
+
+        // 依次打印里面的元素对象  可以采取遍历的方式
+        for(var i =0; i<ele.length;i++){
+            console.log(ele[i]);
+        }
+        //指定父元素来获取子元素 getElementsByTagName('标签名').[索引号] 加上索引号
+        var ol = document.getElementsByTagName("ol")[0].getElementsByTagName("li");
+        console.log(ol);//HTMLCollection(4) [li, li, li, li]
+
+        //指定父元素来获取子元素 getElementById
+        var ol1=document.getElementById("olId").getElementsByTagName("li");
+        console.log(ol1);//HTMLCollection(4) [li, li, li, li]
+    </script>
+</body>
+</html>

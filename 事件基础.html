@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件基础</title>
+</head>
+<body>
+    <input type="button" value="点击" id="in" class="btn"/>
+    <button id="btn">button</button>
+    <script>
+        //点击一个按钮，弹出对话框
+        /* 
+            事件是由三部分组成：（事件三要素）
+                    1、事件源 ：事件被触发的对象  如按钮
+                    2、事件类型：如何触发 什么事件  如：鼠标点击（onclick） 鼠标经过 键盘按下
+                    3、事件处理程序 ：通过一个函数赋值的方式来完成
+        */
+       var button = document.getElementById("btn");
+        button.onclick =function(){
+            alert('按钮被点击了');
+        }
+        document.getElementsByClassName("btn")[0].onclick=function(){
+            alert("按钮也被点击了");
+        }
+    </script>
+    <div id="click">点击</div>
+    <script>
+        /* 
+        //点击div 控制台输出:被选中了
+ */
+     // 执行步骤
+    //1、获取事件源
+       var div1 = document.getElementById('click');
+    //2、绑定事件 注册事件
+    //3、添加事件处理程序
+     div1.onclick = function(){
+        console.log("被选中了");
+     }
+
+    </script>
+</body>
+</html>
