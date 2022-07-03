@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串练习</title>
+    <script>
+        /* 给定一个字符串 'abaasdffggghhjjkkgfddsssss3444343' */
+        var str = 'abaasdffggghhjjkkgfddsssss3444343';
+        //1、获取字符串长度
+        console.log("字符串的长度："+str.length);//33
+        
+        //2、取出指定位置的字符 CharAt
+        console.log(str.charAt(0));
+        console.log(str.charAt(3));
+        console.log(str.charAt(9));
+
+        //查找指定字符是否在以上字符串中存在 如：i,c,b  
+        function strIndex (str,ch){
+           if(str.indexOf(ch)!==-1){
+              console.log(ch+'存在');
+           }else{
+            console.log(ch+'不存在');
+           }
+        }
+        strIndex(str,"i"); //i不存在
+        strIndex(str,"c");//i不存在
+        strIndex(str,"b");//b存在
+
+        //4、替换指定的字符 如g替换为22，ss替换为b
+
+        function strReplace(str,ch,newCh){
+            while(str.indexOf(ch)!==-1){
+                str = str.replace(ch,newCh);
+            }
+            return str;
+        }   
+        console.log(strReplace(str,'g','22'));//abaasdff222222hhjjkk22fddsssss3444343
+        console.log(strReplace(str,'ss','b'));//abaasdffggghhjjkkgfddbbs3444343
+
+       
+        //5、截取指定位置（开始+结束）的字符 
+        console.log(str.substr(1,5));//baasd
+
+        //找出以上字符中出现次数最多的字符和出现次数
+       function strNumMax(str){
+        var max =0;//存放最多次数
+        var charS="";//存放次数最多的字符
+        var obj ={};
+        for(var i =0;i<str.length;i++){
+            //获取每一个字符
+            var ch = str.charAt(i);
+            if(obj[ch]){
+                obj[ch]++;
+            }else{
+                obj[ch]=1
+            }
+        }
+        //遍历对象
+        for(var k in obj){
+            if(obj[k]>max){
+                max=obj[k];
+                charS=k;
+            }
+        }
+        return [charS,max];
+       }
+       console.log(strNumMax(str)); //['s', 6]
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

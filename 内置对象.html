@@ -148,7 +148,124 @@
 
 
     /* 添加和删除数组元素的方法 */
-    </script>
+    // push（）：末尾添加一个或多个元素(修改原数组)
+    var arr4 =[3,4,5,6];
+    console.log(arr4.push(56,"lin")); //6 返回新数组长度
+    console.log(arr4);//3,4,5,6,56,"lin"
+    //unshift(): 向数组的开头添加一个或多个元素
+    console.log(arr4.unshift("one","two")); //8 返回新数组长度
+    console.log(arr4);//"one","two",3,4,5,6,56,"lin"
+
+    //pop() 删除数组最后一个元素 
+    console.log(arr4.pop());//lin 返回被删除的元素
+    //shift() 删除数组的第一个元素
+    console.log(arr4.shift()); //one 返回被删除的元素
+
+    /* 数组排序 */
+    // 翻转数组
+    var arr5 = ["11","领带","鞋子","衣服","帽子","ipad","raibow"];
+    arr5.reverse();//翻转数组函数
+    console.log(arr5); // ['raibow', 'ipad', '帽子', '衣服', '鞋子', '领带', '11']
+    var arr6 =[12,45,22,34,78,99,234,56,7,8];
+    arr6.sort(); 
+    console.log("冒泡:"+arr6);//冒泡:12,22,234,34,45,56,7,78,8,99
+    //只能对元素个数为偶数的数组进行排序 
+    //解决办法
+    arr6.sort(function(a,b){
+        return a-b;//升序的顺序排序
+        // return b-a;//降序的顺序排序
+    });
+    console.log("冒泡:"+arr6+"（改进）"); //冒泡:7,8,12,22,34,45,56,78,99,234（改进）
+
+    /* 
+    数组索引方法 
+    */
+    //Index() 只返回第一个满足条件的索引号
+    var arr7 =[12,45,22,34,12,45];
+    console.log(arr7.indexOf(45));//1
+    console.log(arr7.indexOf(44));//-1
+    //lastIndexOf  返回最后面一个满足条件的索引号
+    console.log(arr7.lastIndexOf(12));//4
+    console.log(arr7.lastIndexOf(23));//-1
+
+
+    /* 数组转化为字符串 */
+    //toString
+    var arr8 = ["11","领带","鞋子","衣服","帽子","ipad","raibow"];
+    console.log(arr8.toString());        //11,领带,鞋子,衣服,帽子,ipad,raibow
+    console.log(arr8.join());//默认逗号  //11,领带,鞋子,衣服,帽子,ipad,raibow
+    console.log(arr8.join("-"));//- 自定义分割  //11-领带-鞋子-衣服-帽子-ipad-raibow
+    console.log(arr8.join("&"));//& 自定义分割  //11&领带&鞋子&衣服&帽子&ipad&raibow
+
+
+    /*字符串对象  */
+
+    var str = "andy";
+    var len = str.length;
+    //基本包装类型 ：就是把简单数据类型 包装成为了 复杂数据类型
+
+    //包装的过程
+    //1、把简单数据类型 包装成为了 复杂数据类型
+    var temp = new String("andy");
+    //2、把临时变量的值 给str
+    str =temp;
+    //3、销毁临时变量
+    temp =null;
+
+    /* 根据字符返回位置 */
+    var str1 = "根据字符返回字符的位置";
+    console.log(str1.indexOf("字"));//2
+    console.log(str1.indexOf("字",3));//6
+
+    console.log(str1.lastIndexOf("字"));//从后开始找 6
+
+    /* 根据位置返回字符 */
+    // charAt(index) 根据位置放回字符
+    var str2 ="string"
+    console.log(str2.charAt(2));//r
+    //遍历字符串
+    for(var i=0;i<str2.length;i++){
+        console.log(str2.charAt(i));
+    }
+    /* 
+    内置对象.html:228 s
+    内置对象.html:228 t
+    内置对象.html:228 r
+    内置对象.html:228 i
+    内置对象.html:228 n
+    内置对象.html:228 g */
+
+    //2 charCodeAt(index) 返回响应索引号的字符的ASCII码值  目的：判断用户按下了哪个键
+        console.log(str2.charCodeAt(0)); //s 115
+
+    //3、str[index]  h5新增
+    console.log(str2[0]);//s
+
+    /*字符串的操作方法  */
+    var str3 ="字符串"
+    console.log(str3.concat("对象")); //字符串对象
+
+    // 2、	substr(start,length)
+    var str4="字符串的操作方法";
+    console.log(str4.substr(4,2));//操作
+
+    //替换字符串 replace('被替换的字符','替换为的字符'); 
+    //只会替换第一个字符
+    var str5 ="replace";
+    console.log(str5.replace("e","E"));//rEplace
+    //有一个字符串 'abcoefocyozzopp' 要求把所有的哦替换为-
+    var str6 = 'abcoefocyozzopp';
+    while (str6.indexOf('o') !==-1) {
+        str6 = str6.replace('o','-')
+    }
+    console.log(str6); //abc-ef-cy-zz-pp
+
+    //字符转化为数组 split（"分隔符"）  数组转化为字符串使用join
+    var str7 = "11,领带,鞋子,衣服,帽子,ipad,raibow";
+    console.log(str7.split(","));   //['11', '领带', '鞋子', '衣服', '帽子', 'ipad', 'raibow']
+    var str7 = "11-领带-鞋子-衣服-帽子-ipad-raibow";
+    console.log(str7.split("-")); // ['11', '领带', '鞋子', '衣服', '帽子', 'ipad', 'raibow']
+    </script>   
 </head>
 <body>
     

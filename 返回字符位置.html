@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>返回字符位置</title>
+    <script>
+        /* 查找字符串 ”abcoefoxyozzopp” 中所有o出现的位置以及次数
+
+            核心算法：1、先查找第一个o的出现的位置
+                    2、只要indexOf返回的结果不是 -1，就继续往后查找
+                    3、因为 indexOf 只能查找到第一个，所以后面的查找，利用第二个参数，当前索引加1，从而继续查找    
+        */ 
+        var str ='abcoefoxyozzopp';
+        var index = str.indexOf("o");
+        var ArrIndex=[];
+        while(index!==-1){
+            ArrIndex.push(index);
+            index = str.indexOf("o",index+1);
+        }
+        console.log(ArrIndex);
+        
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

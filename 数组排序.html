@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组排序</title>
+    <script>
+        //有一个数组，将其小于50的数添加到新数组去
+        var arr =[12,45,22,34,78,99,234,56,7,8,2];
+        var newArr = [];
+        for(var i=0;i<arr.length;i++){
+            if(arr[i] < 50){
+                // newArr[newArr.length]=arr[i];
+                newArr.push(arr[i]);
+            }
+        }
+        console.log(newArr);//[12, 45, 22, 34, 7, 8, 2]
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
