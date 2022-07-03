@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>操作元素——修改元素内容</title>
+    <style>
+        div{
+            width: 300px;
+            height: 30px;
+            line-height: 30px;
+            color: #111;
+            background-color: aliceblue;
+        }
+
+    </style>
+</head>
+<body>
+    
+
+    <button>显示当前系统时间</button><br/>
+    <div>某个时间</div>
+    <div id="atuo">某个时间</div>
+
+    <script>
+        // 操作元素
+        //改变元素内容
+
+        //当我们的点击按钮，div里面的文字会发生改变
+        //1、获取元素
+        var button = document.querySelector('button');
+        var div = document.querySelector("div");
+
+        //2、注册事件
+        button.onclick= function(){
+            div.innerText= getTime();//将时间的字符串写入
+        }
+
+
+    //格式化時間 
+    function getTime(){
+        var date = new Date();
+        var year = date.getFullYear();//年
+        var month = date.getMonth()+1;//月
+        var dates = date.getDate(); //日
+        var day = date.getDay();//周
+        var dayArr= ["星期天","星期一","星期二","星期三","星期四","星期五","星期六"]
+        var hours = date.getHours();//时
+        var minutes = date.getMinutes();//分
+        var sec = date.getSeconds();//秒
+        hours= hours < 10 ? '0'+hours : hours;
+        minutes = minutes<10 ? '0'+minutes : minutes;
+        sec = sec < 10? '0'+sec : sec;
+        return  year+"年"+month+"月"+dates+"日 "+dayArr[day]+'  '+ hours +":"+minutes+":"+sec
+    }
+    
+    //操作DOM
+    document.getElementById('atuo').innerText=getTime();
+    </script>
+
+    <br/>
+    <div class="demo" ></div>
+    <div class="demo" ></div>
+    <p>
+        这里是
+        <span>span标签</span>
+    </p>
+    <script>
+        //innerText 和 innerHTML 的区别 
+        // innerText 非标准
+        var div1 = document.getElementsByClassName("demo")[0]
+        div1.innerText="<strong>今天是</strong>";//<strong>今天是</strong> //不识别html标签
+        //innerHTML 识别html标签 W3C标准
+        var div2 = document.getElementsByClassName("demo")[1];
+        div2.innerHTML="<strong>今天是</strong>"; //今天是 //识别html标签
+
+        //innerText 和 innerHTML 两个属性可以获取元素里面的内容
+        var p = document.querySelector("p");
+        console.log(p.innerText); //这里是 span标签
+        console.log(p.innerHTML);//保留html标签 空格和过行
+        /*
+         这里是
+        <span>span标签</span>
+         */
+    </script>
+    
+</body>
+</html>
