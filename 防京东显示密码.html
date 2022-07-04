@@ -6,37 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>防京东显示密码</title>
     <style>
-        .box {
-            position: relative;
-            width: 400px;
-            border-bottom: 1px solid #ccc;
-            margin: 100px auto;
-        }
-        
-        .box input {
-            width: 370px;
-            height: 30px;
-            border: 0;
-            outline: none;
-        }
-        
-        .box img {
-            position: absolute;
-            top: 2px;
-            right: 2px;
-            width: 24px;
-        }
+      .box{
+        width: 400px;
+        border-bottom: 1px solid #ccc;
+        margin:  100px auto;
+        position: relative;
+      }
+      #pwd{
+        width: 370px;
+        height: 30px;
+        border: 0;
+        outline: none;
+      }
+
+      #eye{
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        width: 24px;
+      }
     </style>
 </head>
 <body>
-    <div class="box">
-        <label for="">
-            <img src="images/close.png" alt="" id="eye">
-        </label>
-        <input type="password" name="" id="pwd">
-    </div>
-    <script>
-        //点击按钮 将密码切换为文本框，并可以查看密码明文
-    </script>
+        <div class="box">
+            <label>
+                <img src="./images/close.png" alt="" id="eye">
+            </label>
+            <input type="password" name="" id="pwd">
+        </div>
+
+
+        <script>
+            //点击按钮 将密码切换为文本框，并可以查看密码明文
+            //1、获取元素
+            var password = document.getElementById('pwd');
+            var eye = document.getElementById('eye');
+            //2、注册事件  处理程序
+            var flag = 0;//用来记住状态
+            eye.onclick = function(){
+                //每点击一次 flag都要变化。
+                if(flag==0){
+                    password.type="text";
+                    eye.src='./images/open.png';
+                    flag=1; 
+                }else{
+                    password.type="password";
+                    eye.src="./images/close.png";
+                    flag=0;
+                }
+                
+            }
+        </script>
 </body>
 </html>

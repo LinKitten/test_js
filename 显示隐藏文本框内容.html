@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>显示隐藏文本框内容</title>
+    <style>
+        input{
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" value="手机">
+    <script>
+        //显示隐藏文本框内容
+        /* 当鼠标点击文本框时，里面的默认文字隐藏，当鼠标离开文本框时，里面的文字显示
+            分析： 首先表单需要两个新事件，获得焦点onfocus 和失去焦点onblur
+                如果获得焦点 判断表单里面的内容是否为默认文字，如果是清空被动内容
+        */
+        //1、获取元素
+        var text = document.querySelector("input");
+        //2、注册事件， 获得焦点事件
+        text.onfocus=function(){
+            if(text.value === '手机'){
+                this.value='';//情况
+            }
+            //获得焦点需要把文本框的颜色加深
+            this.style.color='#666';
+        }
+        //失去焦点
+        text.onblur= function(){
+            //当用户在输入框内容写入内容
+            if(text.value === ''){
+                this.value='手机';
+            }
+            //失去焦点需要把文本框的颜色变浅
+            this.style.color='#999';
+        }
+
+        </script>
+
+</body>
+</html>

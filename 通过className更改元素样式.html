@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通过className更改元素样式</title>
+    <style>
+        div{
+            width: 150px;
+            height: 150px;
+            background-color: aquamarine;
+        }
+        .change{
+            width: 100px;
+            height: 100px;
+            margin: 50px;
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+    <div>element。style</div><br/><br/>
+    <div class="firstname">element.className</div>
+    <script>
+        //1、使用element。style获得修改元素样式 如果样式比较少 或者 功能简单的情况下使用
+        var box = document.querySelectorAll('div')[0];
+        box.onclick = function(){
+            this.style.backgroundColor='red';
+        }
+
+        //使用element.className
+        var box2 = document.querySelectorAll('div')[1];
+        box2.onclick = function(){
+            // this.className='change';
+            //如果先要保留原先的类名，可以这么做
+            this.className='firstname change';
+        }
+    </script>
+</body>
+</html>
