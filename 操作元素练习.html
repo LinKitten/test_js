@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>操作元素练习</title>
+    <style>
+        .box1{
+            width: 200px;
+            margin: 20px auto;
+        
+        }
+        #userName{
+            width: 180px;
+            height: 20px;
+            outline: none;
+            border:1px solid #999;
+            color: #999;
+        }
+
+        .box2{
+            width: 116px;
+            margin: 20px auto;
+            position: relative;
+      
+        }
+        #img{
+            width: 100px;
+          
+        }
+        #close_btn{
+            width: 14px;
+            position: absolute;
+            right:0;
+            top: 0;
+        }
+        
+        .box3{
+            width: 100px;
+            /* border: 1px solid red; */
+            margin: 20px auto;
+            position: relative;
+        }
+        .box3 li{
+            width: 100px;
+            height: 30px;
+            border: 1px solid #bbb;
+            text-align: center;
+            list-style: none;
+            padding-top: 10px;
+            display: none;
+        }
+        #frist{
+            display: block;
+        }
+        .xaila{
+            width: 14px;
+            position: absolute;
+            right:0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <p>用户名显示和隐藏</p>
+        <input type="text" value="输入用户名" id="userName">
+    </div>
+    <script>
+        //用户名显示和隐藏
+        var userName =document.getElementById('userName');
+        //获得焦点
+        userName.onfocus = function(){
+            if(this.value === '输入用户名' ){
+                this.value="";
+          
+            } 
+             this.style.color="#444";
+        }
+        userName.onblur = function(){
+            if(this.value === '' ){
+                this.value="输入用户名";
+            } 
+            this.style.color="#999";
+        }
+
+    </script>
+
+    <hr>
+    <div class="box2">
+        <img src="./images/ldh.jpg" id="img"/>
+        <img src="./images/wrong.png" alt="" id="close_btn">
+    </div>
+    <script>
+        var closeButton = document.getElementById("close_btn");
+        var img = document.getElementById('img');
+        closeButton.onclick = function(){
+            img.style.display = 'none';
+            this.style.display = 'none';
+        }
+
+    </script>
+    <hr/>
+    <div class="box3">
+        <li class="lis" id="frist">微博</li>
+        <li class="lis">私信</li>
+        <li class="lis">评论</li>
+        <li class="lis">@我的</li>
+       
+    </div>
+    <script>
+        var lis = document.querySelectorAll(".lis");
+        var li = document.getElementById("frist");
+        var box = document.querySelector(".box3");
+        //鼠标移到上方
+        for(var i =0;i<lis.length;i++){
+        lis[i].onmouseover =function(){
+            for(var j =1;j<lis.length;j++){
+                lis[j].style.display='block';//出现
+            }
+            this.style.backgroundColor="bisque";
+        }
+    }
+    //背景颜色变化
+    for(var i =0;i<lis.length;i++){
+        lis[i].onmouseout =function(){
+            for(var j =0;j<lis.length;j++){
+                lis[j].style.backgroundColor="#fff";
+            }
+           
+        }
+    }
+    
+        //鼠标移开
+        box.onmouseout = function(){
+            for(var i =1;i<lis.length;i++){
+                lis[i].style.display='none';//隐藏
+                
+            }
+        }
+    </script>
+</body>
+</html>

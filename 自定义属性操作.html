@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义属性操作</title>
+</head>
+<body>
+    <div id="demo" index-demo="1"></div>
+    <script>
+        var div = document.getElementById('demo');
+        //1、获取属性值
+        //(1)、element.属性
+        console.log(div.id);//demo
+        //(2)、element.getAttribute('属性') get获得 attribute 属性 我们程序员自己添加的属性
+        console.log(div.getAttribute('id'));//demo
+        //index-demo 就是自定义的属性
+        console.log(div.getAttribute('index-demo'));//1
+        //2、设置属性值
+        //element.属性 = ’值‘
+        div.id = 'test';
+        //element.setAttribute('属性','值');   主要针对于自定义属性
+        div.setAttribute('index-demo','2');
+        //<div id="test" index-demo="2"></div>
+    </script>
+</body>
+</html>
