@@ -7,7 +7,7 @@
     <title>自定义属性操作</title>
 </head>
 <body>
-    <div id="demo" index-demo="1"></div>
+    <div id="demo" index-demo="1" class="nav"></div>
     <script>
         var div = document.getElementById('demo');
         //1、获取属性值
@@ -20,9 +20,14 @@
         //2、设置属性值
         //element.属性 = ’值‘
         div.id = 'test';
+        div.className = 'lei';
         //element.setAttribute('属性','值');   主要针对于自定义属性
         div.setAttribute('index-demo','2');
         //<div id="test" index-demo="2"></div>
+        div.setAttribute('class','head');
+
+        //3、移除属性 removeAttribute()
+        div.removeAttribute('index-demo');
     </script>
 </body>
 </html>

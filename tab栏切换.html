@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tab栏切换案例</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .tab{
+            width: 736px;
+            /* border: 1px solid red; */
+            margin: 100px auto;
+        }
+        .tab_list{
+
+            height: 30px;
+            border: 1px solid rgba(244, 165, 96, 0.316);
+            background-color: wheat;
+           
+        }
+        li{
+            list-style-type: none;
+            /* border: 1px solid palegreen  ; */
+            
+        }
+        .tab_list li {
+            float: left;
+            height: 30px;
+            line-height: 30PX;
+            padding: 0 30px;
+            margin: 0 2PX;
+            background-color: antiquewhite;
+            cursor:pointer ;
+        }
+        .tab_list .current {
+            background-color: #c81623;
+            color: #fff;
+        }
+        
+        .item_info {
+            padding: 20px 0 0 20px;
+        }
+        
+        .item {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <div class="tab_list">
+            <ul>
+                <li class="current">商品介绍</li>
+                <li>规格与包装</li>
+                <li>售后保障</li>
+                <li>商品评价（50000）</li>
+                <li>手机社区</li>
+            </ul>
+        </div>
+        <div class="tab_con">
+            <div class="item" style="display: block;" >商品内容介绍</div>
+            <div class="item">规格与包装模块内容</div>
+            <div class="item">售后保障模块内容</div>
+            <div class="item">商品评价（50000）模块内容</div>
+            <div class="item">手机社区模块内容</div>
+        </div>
+    </div>
+    <script>
+        //tab栏切换 当鼠标点击上面的选项卡（tab），下面内容随即变化
+         //第一部分 1. 上的模块选项卡，点击某一个，当前这一个底色会是红色，其余不变（排他思想） 修改类名的方式
+        var tab_list = document.querySelector('.tab_list');
+        var lis = tab_list.querySelectorAll('li');
+        var items = document.querySelectorAll('.item');
+        for(var i =0; i<lis.length;i++){
+            //给tab_lis 的li设置索引号
+            lis[i].setAttribute('index',i);
+
+            lis[i].onclick= function(){
+                for(var i =0 ;i<lis.length;i++){
+                    lis[i].className = '';
+                }
+                this.className = 'current';
+
+                //下面的显示模块
+               var index= this.getAttribute('index'); //获取当前索引号
+               for(var i =0 ;i<items.length;i++){
+                    items[i].style.display='none'; //先让所有的模块隐藏
+                }
+                items[index].style.display='block'; //在让当前item对象显示
+            }
+        }
+
+
+    </script>
+</body>
+</html>
