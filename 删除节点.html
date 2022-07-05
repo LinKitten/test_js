@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>删除节点</title>
+</head>
+<body>
+    <button>删除</button>
+    <ul>
+        <li>大一</li>
+        <li>大二</li>
+        <li>大三</li>
+    </ul>
+    <script>
+        //获取节点 按钮 父元素
+        var button = document.querySelector('button');
+        var ul = document.querySelector('ul');
+        //点击按钮，从头开始删除节点
+        button.onclick = function(){
+            if(ul.children.length==0){
+                this.disabled = true;//如果没有节点了，禁用按钮
+                return;
+            }
+            ul.removeChild(ul.children[0]);//删除第一个节点
+        }
+    </script>
+</body>
+</html>
