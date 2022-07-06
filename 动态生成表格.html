@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态生成表格</title>
+    <style>
+        table{
+           width: 300px; 
+           margin: 100px auto;
+           text-align: center;
+           border-collapse: collapse;
+        }
+        th,td{
+            border: 1px solid #aaa;
+        }
+        th{
+            background-color: antiquewhite;
+        }
+        a{
+            text-decoration: none;
+            color:coral;
+        }
+    </style>
+</head>
+<body>
+    <!-- 整个表格 -->
+    <table cellspacing="0">
+        <!-- 表头 -->
+        <thead cellspanc>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <!-- 表内容 -->
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+         // 1.先去准备好学生的数据
+         var datas = [{
+            name:'linlin',
+            subject:'javascript',
+            score:100
+         },{
+            name:'玛卡巴卡',
+            subject:'javascript',
+            score:55
+         },{
+            name:'老吴',
+            subject:'javascript',
+            score:78
+         },{
+            name:'达令',
+            subject:'javascript',
+            score:166
+         },{
+            name:'大咩',
+            subject:'javascript',
+            score:88
+         }
+        ]
+         //获取元素
+
+         var tbody = document.querySelector('tbody');
+
+        //1、往tbody里面创建行  行数=人数=date数组长度
+        for(var i=0;i<datas.length ;i++){
+            //创建行tr 
+            var tr =document.createElement('tr');
+            //将行放进去tbody里面
+            tbody.appendChild(tr);
+            //2、在每一行里面循环创建单元格td 单元格的数量==每个对象里面的属性个数
+            for(var key in datas[i]){
+             //创建节点td
+             var td = document.createElement('td');
+             //把对象里面的属性值 给td
+            //  console.log(datas[i][key]);
+             td.innerHTML=datas[i][key]; 
+             //添加到行里面
+             tr.appendChild(td);   
+            }
+
+            //3、创建有删除链接 单元格
+            var td =document.createElement('td');
+            td.innerHTML="<a href='javascript:;'>删除</a>   ";
+            tr.appendChild(td);
+        }                                                                                                                                             
+
+        // 删除操作
+        var del =document.querySelectorAll('a');
+        for(var i =0 ;i < del.length;i++){
+            del[i].onclick = function(){
+                //点击a 删除当前行的(链接的爸爸的爸爸) a >td单元格>tr行>tbody
+                tbody.removeChild(this.parentNode.parentNode);
+            }
+        }
+
+
+    </script>
+</body>
+</html>
