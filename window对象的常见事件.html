@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 窗口加载事件 window.onload 
+        window.onload = function(){
+            var button = document.querySelector('button');
+            button.addEventListener("click",function(){
+                alert("n被点击了");
+            })
+        }
+        //在传统注册事件中，window.onload多次注册，以最后一个为准
+        window.onload = function(){
+            alert('第二个window.onload');
+        } 
+        //使用事件监听的方法注册 就没有以上问题
+        window.addEventListener('load',function(){
+            var button = document.querySelector('button');
+            button.addEventListener("click",function(){
+                alert("n被点击了");
+            })
+        })
+        window.addEventListener('load',function(){
+           
+                alert("事件监听的方法注册window");
+           
+        })
+        document.addEventListener('DOMContentLoaded',function(){
+            alert("DOMContentLoaded");
+        })
+        //load 等页面内容全部加载完毕，包含页面dom元素 图片等
+        //DOMContentLoaded 是DOM加载完毕 ，不包含图片 falsh等就可以执行，加载速度比load快
+    </script>
+    <button>button</button>
+</body>
+</html>

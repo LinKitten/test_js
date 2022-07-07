@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模拟京东快递单号查询效果</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            
+        }
+     
+        .box{
+            width: 200px;
+            margin: 100px auto;
+            position: relative;
+            
+        }
+        .con{
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 4px ;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) ;
+            font-size: 18px;
+            line-height: 20px;
+            position: absolute;
+            top: -30px;
+            color: #333;
+            display: none;
+            
+        }
+        /* .con,.jd{
+            width: 200px;
+        } */
+        .con::before {
+            content: '';
+            width: 0;/*宽高一定为零*/
+            height: 0;
+            position: absolute;
+            top: 28px;
+            left: 18px;
+            border: 8px solid #000;
+            border-style: solid dashed dashed;
+            border-color: #fff transparent transparent;/*边框设置透明：上（三角形），左右透明，下透明*/
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="con">123</div>
+        <input type="text" placeholder="请输入您的快递单号" class="jd">
+    </div>
+    <script>
+        /*  - 快递单号输入内容时，上面的大号字体盒子（con）显示
+            - 表单检测用户输入：给表单添加键盘事件
+            - 同时把快递单号里面的值（value）获取过来赋值给con盒子 作为内容
+            - 如果快递单号里面的内容为空，则隐藏大号字体盒子（con）盒子
+            */
+        var text =document.querySelector('.jd');//获取文本框元素
+        var con =document.querySelector('.con');
+        text.addEventListener('keyup',function(e){
+            // console.log("输入内容");
+            if(this.value==''){
+                con.style.display="none";//如果输入框没有内容，提示框隐藏
+            }else{
+                 //一但输入内容，就显示上面显示框，并且和输入框内容一致
+                con.style.display="block";
+                con.innerText=this.value;
+            
+            }
+            
+        })
+        /* - 当失去焦点，就隐藏盒子*/
+        text.addEventListener('blur',function(){
+            con.style.display= "none";
+        })
+        /* 当得到焦点，如果文本框里面的内容不为空，就显示提示框 */
+        text.addEventListener('focus',function(){
+            if(text.value!=''){
+                con.style.display="block";
+            }else{
+                con.style.display='none';
+            }
+        })
+    </script>   
+</body>
+</html> 
