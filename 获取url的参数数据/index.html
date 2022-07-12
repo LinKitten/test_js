@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>接收参数</title>
+</head>
+<body> 
+    <div></div>
+    <script>
+        console.log(location.search);  //?username=参数
+        //1、去掉？ substr（“起始位置”，截取几个字符）；
+        var param = location.search.substr(1);//username=参数
+        console.log(param); 
+        //分割数据
+        var arr = param.split("="); 
+        console.log(arr);//['username', '参数']
+        var div = document.querySelector('div').innerHTML="传递的参数是： "+arr[1];
+    </script>
+</body>
+</html>
