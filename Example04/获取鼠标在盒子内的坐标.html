@@ -39,14 +39,14 @@
         // })
 
         //改进
-           var box = document.querySelector('.box');
-        box.addEventListener('mousemove',function(e){
-            // console.log(e.pageX);//鼠标在页面的x坐标
-            // console.log(e.pageY);//鼠标在页面的Y坐标
-            var x = e.pageX-this.offsetLeft;
-            var y = e.pageY-this.offsetTop;
-            this.innerHTML ="鼠标在盒子内的坐标:( "+x+" , "+y+" )";
-        })
+            var box = document.querySelector('.box');
+            box.addEventListener('mousemove',function(e){
+                // console.log(e.pageX);//鼠标在页面的x坐标
+                // console.log(e.pageY);//鼠标在页面的Y坐标
+                var x = e.pageX-this.offsetLeft;
+                var y = e.pageY-this.offsetTop;
+                this.innerHTML ="鼠标在盒子内的坐标:( "+x+" , "+y+" )";
+            })
     </script>
 </body>
 </html>

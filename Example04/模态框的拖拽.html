@@ -26,7 +26,7 @@
             position: fixed;
             left: 0px;  
             top: 0px;
-            /* display: none; */
+            display: none;
         }
         .login_box{
             width: 400px;
@@ -37,6 +37,7 @@
             left: 50%;
             box-shadow:0px 0px 20px rgba(0,0,0,0.1) ;
             transform: translate(-50%,-50%);/* 盒子原点定位到中点 */
+            display: none;
         }
         .login_box .login_close{
             width: 32px;
@@ -68,7 +69,7 @@
             
         }
         .login_head{
-           
+           height: 30px;
             text-align: center;
         }
         span{
@@ -93,7 +94,7 @@
 </head>
 <body>
     <!-- 点击链接 -->
-    <div class="a_head"><a href="javascript:;" id="libk">点击 弹出登录框</a></div>
+    <div class="a_head"><a href="javascript:;" id="link">点击 弹出登录框</a></div>
    
     <!-- 遮盖层  -->
     <div class="box" id="box" ></div><!-- 最下面的灰盒子 --> 
@@ -110,7 +111,52 @@
             <div><span >登录密码：</span> <input type="text" name="password" id="password" placeholder="请输入密码"></div>
             <div><input type="submit" value="登录会员" id="login_button"></div>
         </div>
-        
      </div>
+     <script>
+        //1、获取元素
+        //点击文字对象
+        var link = document.querySelector('#link');
+        //遮盖层
+        var mask = document.querySelector('.box');
+        //登录框
+        var login_box =document.querySelector('.login_box');
+        //关闭按钮
+        var close_btn = document.querySelector('.login_close');
+        
+        //2、点击文字弹出登录框
+        link.addEventListener('click',function(){
+            mask.style.display="block";
+            login_box.style.display="block";
+        })
+        //3、点击关闭按钮 关闭登录框
+        close_btn.addEventListener('click',function(){
+            mask.style.display="none";
+            login_box.style.display="none";
+        })
+        /* 拖拽过程:  鼠标移动过程中，获得最新的值赋值给模态框的left和top值， 这样模态框可以跟着鼠标走了
+            鼠标按下触发的事件源是 最上面一行，就是  id 为 title 
+            鼠标的坐标 减去 鼠标在盒子内的坐标， 才是模态框真正的位置 
+        */
+        //4、实现拖拽效果 鼠标按下并移动 之后松开鼠标
+        //只能title才能拖拽
+        var title = document.querySelector('.login_head');
+        //4.1 当鼠标按下，就获得鼠标在盒子里的坐标
+        title.addEventListener('mousedown',function(e){
+            var x = e.pageX-login_box.offsetLeft; //鼠标在页面的坐标-盒子距离页面的距离
+            var y = e.pageY-login_box.offsetTop;
+            //绑定一个鼠标移动事件
+            //4.2 鼠标移动的时候，把鼠标在页面中的坐标 - 鼠标在盒子里面的坐标就是整个登录框的left和top
+            document.addEventListener('mousemove',move);
+            function move(e){
+               login_box.style.left = e.pageX-x + 'px';
+               login_box.style.top = e.pageY-y + 'px';
+            }
+
+            //4.3 鼠标弹起（松开） 就移除移动事件
+            document.addEventListener('mouseup',function(){
+                document.removeEventListener('mousemove',move);
+            })
+        })
+     </script>
 </body>
 </html>
