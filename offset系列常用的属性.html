@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>offset系列常用的属性</title>
+    <style>
+        .father{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            margin: 100px;
+            position: absolute;
+        }
+        .son{
+            width: 50%;
+            height: 50%;
+            padding: 10px;
+            background-color: rebeccapurple;
+            margin: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <br/>
+ 
+    <script>
+        //offset属性
+        var father = document.querySelector('.father');
+        var son = document.querySelector('.son');
+        //可以得到元素的偏移位置 返回的不带单位的数值
+        console.log(father.offsetTop);
+        console.log(father.offsetLeft);
+        //以带有定位的父亲为准，如果父亲没有定位，则以body为准
+        console.log(son.offsetTop);
+        console.log(son.offsetLeft);
+
+        //返回自身包括padding、边框、内容区的宽度高，返回数值不带单位
+        console.log(son.offsetWidth);
+        console.log(son.offsetHeight);
+        
+        //返回带定位的父亲 否则返回body
+        console.log(son.offsetParent);
+        console.log(son.parentNode);//返回亲爸
+    </script>
+</body>
+</html>
