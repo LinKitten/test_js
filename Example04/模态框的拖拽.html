@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模态框的推拽</title>
+    <style>
+        *{  
+            margin: 0;
+            padding: 0;
+        }
+        .a_head{
+            width: 200px;
+            margin: 10px auto;
+            text-align: center;
+        }
+        a{
+            color: #000;
+            text-decoration: none;
+        }
+        .box{
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.1);
+            position: fixed;
+            left: 0px;  
+            top: 0px;
+            /* display: none; */
+        }
+        .login_box{
+            width: 400px;
+            height: 200px;
+            position: fixed;
+            background-color: #fff;
+            top: 50%;
+            left: 50%;
+            box-shadow:0px 0px 20px rgba(0,0,0,0.1) ;
+            transform: translate(-50%,-50%);/* 盒子原点定位到中点 */
+        }
+        .login_box .login_close{
+            width: 32px;
+            height: 32px;
+            font-size: 6px;
+            background-color: white;
+            box-shadow: 0px 0px 2px #bbb;
+            text-align: center;/* 水平居中 */
+            border-radius: 50%;
+            /* 写定位 */
+            position: fixed; 
+            top: -10px;
+            right: -10px;
+            display: table;
+        }
+        .login_box .login_close a{
+            display: table-cell;
+            vertical-align:middle; /* 上下居中 */
+        }
+       
+        .login_content{
+            width: 80%;
+            margin: 0px auto;
+            /* border:  1px solid blue; */
+        }       
+        .login_content div{
+            margin-top: 20px;
+            font-size: 14px;
+            
+        }
+        .login_head{
+           
+            text-align: center;
+        }
+        span{
+            /* border: 1px solid red; */
+            width: 200px;
+            margin-left:10px ;
+            text-align: right;
+        }
+        .login_content #username,#password{
+            float: right;
+            width: 70%;
+        }
+        #login_button{
+            width: 50%;
+            background-color: #fff;
+            border: none;
+            box-shadow: 0px 0px 2px #aaa;
+            margin-left: 25%;
+            margin-right: 25%;
+        }
+    </style>
+</head>
+<body>
+    <!-- 点击链接 -->
+    <div class="a_head"><a href="javascript:;" id="libk">点击 弹出登录框</a></div>
+   
+    <!-- 遮盖层  -->
+    <div class="box" id="box" ></div><!-- 最下面的灰盒子 --> 
+
+     <!-- 弹出的登录框 -->
+     <div class="login_box" >
+        <!-- 关闭按钮 -->
+        <div class="login_close"><a href="javascript:;">关闭</a></div>
+
+        <!--  登录内容 -->
+        <div class="login_content" >
+            <div class="login_head" >登录会员</div>
+            <div> <span>用户名：</span> <input type="text" name="username" id="username" placeholder="请输入用户名"></div>
+            <div><span >登录密码：</span> <input type="text" name="password" id="password" placeholder="请输入密码"></div>
+            <div><input type="submit" value="登录会员" id="login_button"></div>
+        </div>
+        
+     </div>
+</body>
+</html>
