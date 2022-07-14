@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仿淘宝固定侧边栏案例</title>
+    <style>
+        .head_box{
+            width: 80%;
+            height: 100px;
+            background-color: cadetblue;
+        }
+        .banner_box{
+            width: 80%;
+            height: 220px;
+            background-color: chocolate;
+        }
+        .body_box{
+            width: 80%;
+            height: 600px;
+            background-color: darkmagenta;
+        }
+        .head_box,.banner_box,.body_box{
+            margin: 20px auto;
+        }
+        .nav_father {
+            width: 8%;
+            height: 120px;
+            position: absolute;  
+            right: 20px;
+            top: 250px;
+            background-color: blue;
+        }
+        .nav{
+           position: absolute;
+           display: none;
+           bottom: 0;
+            
+        }
+    </style>
+</head>
+<body>  
+    <div class="head_box">头部区域</div>
+    <div class="banner_box">banner区域</div>
+    <div class="body_box">主体部分</div>
+    <div class="nav_father"> 
+        <span class="nav">侧边栏</span>
+    </div>
+   
+    <script>
+        /* 1.原先侧边栏是绝对定位
+            2. 当页面滚动到一定位置，侧边栏改为固定定位
+            3. 页面继续滚动，会让 返回顶部显示出来
+        */
+       
+    </script>
+</body>
+</html>

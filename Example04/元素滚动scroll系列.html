@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元素滚动scroll系列</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: blueviolet;
+            /* padding: 20px; */
+            /* margin: 10px; */
+            border: 20px;
+            overflow: auto;/* 自动添加滚动条 */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        元素滚动scroll系列内容
+        元素滚动scroll系列内容
+        元素滚动scroll系列内容
+        元素滚动scroll系列内容
+        元素滚动scroll系列内容
+        元素滚动scroll系列内容
+        元素滚动scroll系列内容
+        元素滚动scroll系列内容
+        元素滚动scroll系列内容
+        元素滚动scroll系列内容
+        元素滚动scroll系列内容
+    </div>
+    <script>
+        //元素滚动scroll系列
+        var div = document.querySelector('div');
+        console.log(div.scrollHeight); //实际内容的高度 不包含border margin 包含padding
+        console.log(div.clientHeight); //盒子的高度 不包含border margin 包含padding
+
+        // srcoll滚动事件 当我们滚动条发生变化时会触发的事件
+        div.addEventListener("scroll",function(){
+            console.log(div.scrollTop);
+        });
+    </script>
+</body>
+</html>
